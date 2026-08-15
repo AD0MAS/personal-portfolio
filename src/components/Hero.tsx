@@ -5,7 +5,7 @@ function Hero() {
       id="home"
       className="min-h-screen flex flex-col justify-center items-center text-center px-6"
     >
-      <p className="text-gray-500 mb-3">Hi, I'm Adomas.</p>
+      <p className="text-gray-500 mb-3">Hi, I'm Adomas Pakalniškis.</p>
 
       <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
         Software Systems Student
