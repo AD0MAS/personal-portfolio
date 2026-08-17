@@ -21,7 +21,18 @@ function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-background/60 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 z-50">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-        <span className="font-semibold text-lg">AP</span>
+        <a href="#" aria-label="Home" className="relative w-10 h-8 block">
+          <img
+            src="/logo-light.svg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-contain opacity-100 dark:opacity-0 transition-opacity duration-150"
+          />
+          <img
+            src="/logo-dark.svg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-contain opacity-0 dark:opacity-100 transition-opacity duration-150"
+          />
+        </a>
 
         <ul className="hidden md:flex items-center gap-6 text-sm text-gray-700 dark:text-gray-300">
           {navLinks.map((link) => (
