@@ -41,14 +41,14 @@ function LanguageToggle() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Change language"
-        className="h-8 flex items-center gap-1.5 px-3 rounded-full bg-gray-200 dark:bg-gray-800 text-sm cursor-pointer"
+        className="h-8 flex items-center gap-1.5 px-3 rounded-full bg-gray-200 dark:bg-gray-700 text-sm transition-transform cursor-pointer"
       >
         <FlagIcon code={active.code} />
         {isOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
       </button>
 
       {isOpen && (
-        <ul className="absolute right-0 mt-2 w-40 bg-background border border-gray-200 dark:border-gray-800 rounded-xl shadow-lg overflow-hidden">
+        <ul className="absolute right-0 mt-2 w-40 bg-background dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg overflow-hidden">
           {LANGUAGES.map((lang) => (
             <li key={lang.code}>
               <button

@@ -31,7 +31,7 @@ function Hero() {
 
         <a
           href="#contact"
-          className="border border-gray-300 dark:border-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+          className="border border-gray-300 dark:border-gray-600 px-6 py-3 rounded-full font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition"
         >
           {t.hero.contactMe}
         </a>

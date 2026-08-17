@@ -38,7 +38,7 @@ function Contact() {
           href="https://github.com/AD0MAS"
           target="_blank"
           rel="noopener noreferrer"
-          className="border border-gray-300 dark:border-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+          className="border border-gray-300 dark:border-gray-600 px-6 py-3 rounded-full font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition"
         >
           {t.contact.github}
         </a>
@@ -47,7 +47,7 @@ function Contact() {
           href="https://linkedin.com/in/adomas-pakalniskis"
           target="_blank"
           rel="noopener noreferrer"
-          className="border border-gray-300 dark:border-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+          className="border border-gray-300 dark:border-gray-600 px-6 py-3 rounded-full font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition"
         >
           {t.contact.linkedin}
         </a>

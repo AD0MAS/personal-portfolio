@@ -20,7 +20,7 @@ function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-background/60 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 z-50">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4 md:grid md:grid-cols-3">
         <a href="#" aria-label="Home" className="relative w-10 h-8 block">
           <img
             src="/logo-light.svg"
@@ -34,19 +34,23 @@ function Navbar() {
           />
         </a>
 
-        <ul className="hidden md:flex items-center gap-6 text-sm text-gray-700 dark:text-gray-300">
+        <ul className="hidden md:flex items-center justify-self-center gap-2 text-sm text-gray-700 dark:text-gray-300">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a href={link.href}>{link.label}</a>
+              <a
+                href={link.href}
+                className="block px-3 py-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-foreground transition-all duration-200 whitespace-nowrap"
+              >
+                {link.label}
+              </a>
             </li>
           ))}
-          <li className="flex items-center">
-            <ThemeToggle />
-          </li>
-          <li className="flex items-center">
-            <LanguageToggle />
-          </li>
         </ul>
+
+        <div className="hidden md:flex items-center justify-self-end gap-4">
+          <ThemeToggle />
+          <LanguageToggle />
+        </div>
 
         <div className="flex items-center gap-4 md:hidden">
           <ThemeToggle />
