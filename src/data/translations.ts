@@ -14,7 +14,7 @@ export const translations: Record<'en' | 'lt', Translations> = {
     hero: {
       greeting: "Hi, I'm Adomas Pakalniškis.",
       titleLine1: 'Software Systems Student',
-      titleLine2: 'Frontend Developer',
+      titleLine2: 'Software Developer',
       subtitle: 'Building modern web applications.',
       viewProjects: 'View Projects',
       contactMe: 'Contact Me',
@@ -59,6 +59,20 @@ export const translations: Record<'en' | 'lt', Translations> = {
       heading: 'Projects',
       entries: [
         {
+          title: 'GoHybrid',
+          description:
+            'A full-stack training platform for hybrid athletes with a structured workout builder, weekly planning, a focused workout mode, progress analytics, and user authentication.',
+          tech: [
+            'Next.js',
+            'TypeScript',
+            'PostgreSQL',
+            'Supabase',
+            'Tailwind CSS',
+          ],
+          githubUrl: 'https://github.com/AD0MAS/gohybrid',
+          liveUrl: 'https://gohybrid.vercel.app',
+        },
+        {
           title: 'Atidelioju.lt',
           description:
             'A full CRUD task management app with checklist sub-items, live overdue detection, category filtering, dark mode, and full responsiveness (desktop/tablet/mobile).',
@@ -93,7 +107,7 @@ export const translations: Record<'en' | 'lt', Translations> = {
     hero: {
       greeting: 'Sveiki, aš Adomas Pakalniškis.',
       titleLine1: 'Programų sistemų studentas',
-      titleLine2: 'Frontend programuotojas',
+      titleLine2: 'Programuotojas',
       subtitle: 'Kuriu modernias web aplikacijas.',
       viewProjects: 'Mano projektai',
       contactMe: 'Susisiekti',
@@ -137,6 +151,20 @@ export const translations: Record<'en' | 'lt', Translations> = {
     projects: {
       heading: 'Projektai',
       entries: [
+        {
+          title: 'GoHybrid',
+          description:
+            'Full-stack treniruočių platforma hibridiniams sportininkams su struktūrizuotu treniruočių konstruktoriumi, savaitės planavimu, treniruotės atlikimo režimu, progreso analitika ir naudotojų paskyromis.',
+          tech: [
+            'Next.js',
+            'TypeScript',
+            'PostgreSQL',
+            'Supabase',
+            'Tailwind CSS',
+          ],
+          githubUrl: 'https://github.com/AD0MAS/gohybrid',
+          liveUrl: 'https://gohybrid.vercel.app',
+        },
         {
           title: 'Atidelioju.lt',
           description:
