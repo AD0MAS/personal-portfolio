@@ -2,14 +2,40 @@
 export const skillCategories = [
   {
     title: 'Frontend',
-    skills: ['React', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'Tailwind'],
+    skills: [
+      'React',
+      'Next.js',
+      'TypeScript',
+      'JavaScript',
+      'HTML',
+      'CSS',
+      'Tailwind CSS',
+    ],
   },
   {
     title: 'Backend',
-    skills: ['C#', 'ASP.NET', 'SQL'],
+    skills: [
+      'PostgreSQL',
+      'SQL',
+      'Supabase',
+      'Drizzle ORM',
+      'REST APIs',
+      'C#',
+      'ASP.NET',
+      'Java',
+      'Python',
+    ],
   },
   {
     title: 'Tools',
-    skills: ['Git', 'GitHub', 'VS Code', 'Vite', 'Visual Studio', 'IntelliJ'],
+    skills: [
+      'Git',
+      'GitHub',
+      'Vercel',
+      'VS Code',
+      'Vite',
+      'Visual Studio',
+      'IntelliJ',
+    ],
   },
 ] as const
