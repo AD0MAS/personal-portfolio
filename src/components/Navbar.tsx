@@ -20,7 +20,7 @@ function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-background/60 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 z-50">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4 md:grid md:grid-cols-3">
+      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4 lg:grid lg:grid-cols-3">
         <a href="#" aria-label="Home" className="relative w-10 h-8 block">
           <img
             src="/logo-light.svg"
@@ -34,7 +34,7 @@ function Navbar() {
           />
         </a>
 
-        <ul className="hidden md:flex items-center justify-self-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+        <ul className="hidden lg:flex items-center justify-self-center gap-2 text-sm text-gray-700 dark:text-gray-300">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
@@ -47,12 +47,12 @@ function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden md:flex items-center justify-self-end gap-4">
+        <div className="hidden lg:flex items-center justify-self-end gap-4">
           <ThemeToggle />
           <LanguageToggle />
         </div>
 
-        <div className="flex items-center gap-4 md:hidden">
+        <div className="flex items-center gap-4 lg:hidden">
           <ThemeToggle />
           <LanguageToggle />
           <button
@@ -66,7 +66,7 @@ function Navbar() {
       </div>
 
       {isOpen && (
-        <ul className="md:hidden flex flex-col items-center gap-4 pb-6 text-sm text-gray-700 dark:text-gray-300">
+        <ul className="lg:hidden flex flex-col items-center gap-4 pb-6 text-sm text-gray-700 dark:text-gray-300">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a href={link.href} onClick={() => setIsOpen(false)}>
