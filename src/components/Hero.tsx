@@ -11,7 +11,7 @@ function Hero() {
     >
       <p className="text-gray-500 dark:text-gray-400 mb-3">{t.hero.greeting}</p>
 
-      <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+      <h1 className="text-3xl sm:text-5xl font-bold text-foreground mb-4">
         {t.hero.titleLine1}
         <br />
         {t.hero.titleLine2}
