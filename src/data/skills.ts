@@ -21,7 +21,6 @@ export const skillCategories = [
       'Drizzle ORM',
       'REST APIs',
       'C#',
-      'ASP.NET',
       'Java',
       'Python',
     ],
@@ -35,7 +34,7 @@ export const skillCategories = [
       'VS Code',
       'Vite',
       'Visual Studio',
-      'IntelliJ',
+      'IntelliJ IDEA',
     ],
   },
 ] as const
