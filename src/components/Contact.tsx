@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useLanguage } from '../hooks/useLanguage'
 import { buttonFilled, buttonOutline } from '../constants/buttonStyles'
 
@@ -7,21 +7,31 @@ const EMAIL = 'adomas.pakalniskis@gmail.com'
 /** Contact section: links to GitHub, LinkedIn, and a copy-to-clipboard email button. */
 function Contact() {
   const [copied, setCopied] = useState(false)
-  const [lockedWidth, setLockedWidth] = useState<number | null>(null)
-  const buttonRef = useRef<HTMLButtonElement>(null)
+  const resetTimeoutRef = useRef<number | null>(null)
   const { t } = useLanguage()
 
+  const clearResetTimeout = () => {
+    if (resetTimeoutRef.current !== null) {
+      window.clearTimeout(resetTimeoutRef.current)
+      resetTimeoutRef.current = null
+    }
+  }
+
+  useEffect(() => clearResetTimeout, [])
+
   const handleCopyEmail = async () => {
-    if (buttonRef.current) {
-      setLockedWidth(buttonRef.current.offsetWidth)
+    try {
+      await navigator.clipboard.writeText(EMAIL)
+    } catch {
+      // Clipboard unavailable (non-secure origin) or permission denied: fail silently.
+      return
     }
 
-    await navigator.clipboard.writeText(EMAIL)
     setCopied(true)
-
-    setTimeout(() => {
+    clearResetTimeout()
+    resetTimeoutRef.current = window.setTimeout(() => {
+      resetTimeoutRef.current = null
       setCopied(false)
-      setLockedWidth(null)
     }, 3000)
   }
 
@@ -53,14 +63,28 @@ function Contact() {
           {t.contact.linkedin}
         </a>
         <button
-          ref={buttonRef}
           onClick={handleCopyEmail}
-          style={lockedWidth ? { width: lockedWidth } : undefined}
           className={`${buttonFilled} cursor-pointer whitespace-nowrap`}
         >
-          {copied ? t.contact.copied : t.contact.copyEmail}
+          {/* Both labels share one grid cell, so the button always fits the longer one. */}
+          <span className="inline-grid justify-items-center">
+            <span className="col-start-1 row-start-1">
+              {copied ? t.contact.copied : t.contact.copyEmail}
+            </span>
+            <span
+              aria-hidden="true"
+              className="col-start-1 row-start-1 invisible"
+            >
+              {copied ? t.contact.copyEmail : t.contact.copied}
+            </span>
+          </span>
         </button>
       </div>
+
+      {/* Announces a successful copy to screen readers; empty otherwise so language switches stay silent. */}
+      <p role="status" className="sr-only">
+        {copied ? t.contact.copied : ''}
+      </p>
     </section>
   )
 }
