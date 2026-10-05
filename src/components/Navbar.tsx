@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
 import LanguageToggle from './LanguageToggle'
@@ -7,7 +7,29 @@ import { useLanguage } from '../hooks/useLanguage'
 /** Fixed top navigation bar with smooth-scroll links to page sections. */
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [pressedHref, setPressedHref] = useState<string | null>(null)
+  const closeTimeoutRef = useRef<number | null>(null)
   const { t } = useLanguage()
+
+  const clearCloseTimeout = () => {
+    if (closeTimeoutRef.current !== null) {
+      window.clearTimeout(closeTimeoutRef.current)
+      closeTimeoutRef.current = null
+    }
+  }
+
+  useEffect(() => clearCloseTimeout, [])
+
+  /** Keeps the tapped link tinted briefly so the press is visible before the menu closes. */
+  const handleMobileLinkClick = (href: string) => {
+    setPressedHref(href)
+    clearCloseTimeout()
+    closeTimeoutRef.current = window.setTimeout(() => {
+      closeTimeoutRef.current = null
+      setIsOpen(false)
+      setPressedHref(null)
+    }, 180)
+  }
 
   const navLinks = [
     { href: '#home', label: t.nav.home },
@@ -56,7 +78,11 @@ function Navbar() {
           <ThemeToggle />
           <LanguageToggle />
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => {
+              clearCloseTimeout()
+              setPressedHref(null)
+              setIsOpen(!isOpen)
+            }}
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             className="cursor-pointer"
           >
@@ -66,10 +92,30 @@ function Navbar() {
       </div>
 
       {isOpen && (
-        <ul className="lg:hidden flex flex-col items-center gap-4 pb-6 text-sm text-gray-700 dark:text-gray-300">
+        <ul className="lg:hidden flex flex-col items-center gap-1 pb-6 text-sm text-gray-700 dark:text-gray-300">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a href={link.href} onClick={() => setIsOpen(false)}>
+              <a
+                href={link.href}
+                onPointerDown={() => setPressedHref(link.href)}
+                onPointerCancel={() => setPressedHref(null)}
+                onPointerLeave={(e) => {
+                  // On touch, pointerleave fires between pointerup and click; clearing here would blink the tint.
+                  if (e.pointerType !== 'touch') setPressedHref(null)
+                }}
+                onPointerUp={(e) => {
+                  if (e.pointerType !== 'touch') return
+                  const lifted = document.elementFromPoint(e.clientX, e.clientY)
+                  if (!lifted || !e.currentTarget.contains(lifted))
+                    setPressedHref(null)
+                }}
+                onClick={() => handleMobileLinkClick(link.href)}
+                className={`block px-5 py-3 rounded-full [-webkit-tap-highlight-color:transparent] active:bg-gray-200 dark:active:bg-gray-700 active:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 dark:focus-visible:outline-gray-100 ${
+                  pressedHref === link.href
+                    ? 'bg-gray-200 dark:bg-gray-700 text-foreground'
+                    : 'hover:bg-gray-100 dark:hover:bg-gray-800'
+                }`}
+              >
                 {link.label}
               </a>
             </li>
