@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { useLanguage } from '../hooks/useLanguage'
+import { buttonFilled, buttonOutline } from '../constants/buttonStyles'
 
 const EMAIL = 'adomas.pakalniskis@gmail.com'
 
@@ -38,7 +39,7 @@ function Contact() {
           href="https://github.com/AD0MAS"
           target="_blank"
           rel="noopener noreferrer"
-          className="border border-gray-300 dark:border-gray-600 px-6 py-3 rounded-full font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+          className={buttonOutline}
         >
           {t.contact.github}
         </a>
@@ -47,7 +48,7 @@ function Contact() {
           href="https://linkedin.com/in/adomas-pakalniskis"
           target="_blank"
           rel="noopener noreferrer"
-          className="border border-gray-300 dark:border-gray-600 px-6 py-3 rounded-full font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+          className={buttonOutline}
         >
           {t.contact.linkedin}
         </a>
@@ -55,7 +56,7 @@ function Contact() {
           ref={buttonRef}
           onClick={handleCopyEmail}
           style={lockedWidth ? { width: lockedWidth } : undefined}
-          className="bg-foreground text-background px-6 py-3 rounded-full font-medium hover:opacity-90 transition cursor-pointer whitespace-nowrap"
+          className={`${buttonFilled} cursor-pointer whitespace-nowrap`}
         >
           {copied ? t.contact.copied : t.contact.copyEmail}
         </button>

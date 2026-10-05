@@ -1,4 +1,5 @@
 import { useLanguage } from '../hooks/useLanguage'
+import { buttonFilled, buttonOutline } from '../constants/buttonStyles'
 
 /** Landing section: introduces who I am and the two primary calls to action. */
 function Hero() {
@@ -22,17 +23,11 @@ function Hero() {
       </p>
 
       <div className="flex gap-4">
-        <a
-          href="#projects"
-          className="bg-foreground text-background px-6 py-3 rounded-full font-medium hover:opacity-90 transition"
-        >
+        <a href="#projects" className={buttonFilled}>
           {t.hero.viewProjects}
         </a>
 
-        <a
-          href="#contact"
-          className="border border-gray-300 dark:border-gray-600 px-6 py-3 rounded-full font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition"
-        >
+        <a href="#contact" className={buttonOutline}>
           {t.hero.contactMe}
         </a>
       </div>
