@@ -2,9 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Set to the active theme's background by the script below and by useTheme. -->
+    <meta name="theme-color" content="#ffffff" />
     <script>
       // Applies the saved theme and language before first paint (no light flash, correct lang).
-      // Storage keys and fallbacks must stay in sync with useTheme.ts and LanguageProvider.tsx.
+      // Storage keys and fallbacks must stay in sync with useTheme.ts and LanguageProvider.tsx;
+      // theme-color values must match --background in index.css and THEME_COLORS in constants/themes.ts.
       ;(function () {
         function read(key) {
           try {
@@ -20,10 +23,18 @@
             : 'light'
         }
         document.documentElement.classList.toggle('dark', theme === 'dark')
+        var themeColor = document.querySelector('meta[name="theme-color"]')
+        if (themeColor) {
+          themeColor.setAttribute(
+            'content',
+            theme === 'dark' ? '#0a0a0a' : '#ffffff'
+          )
+        }
         document.documentElement.lang = read('language') === 'lt' ? 'lt' : 'en'
       })()
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Adomas Pakalniškis — Software Developer</title>
@@ -42,10 +53,20 @@
       property="og:description"
       content="Portfolio of Adomas Pakalniškis, a software developer and Software Systems student."
     />
-    <meta property="og:url" content="https://adomaspak.com" />
-    <meta property="og:image" content="https://adomaspak.com/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://www.adomaspak.com/" />
+    <meta property="og:site_name" content="Adomas Pakalniškis" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="lt_LT" />
+    <meta
+      property="og:image"
+      content="https://www.adomaspak.com/og-image.png"
+    />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1260" />
+    <meta
+      property="og:image:alt"
+      content='Dark-mode homepage of Adomas Pakalniškis&#39;s portfolio: "Software Systems Student, Software Developer".'
+    />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -57,23 +78,18 @@
       name="twitter:description"
       content="Portfolio of Adomas Pakalniškis, a software developer and Software Systems student."
     />
-    <meta name="twitter:image" content="https://adomaspak.com/og-image.png" />
-
-    <!-- Theme Color -->
     <meta
-      name="theme-color"
-      content="#ffffff"
-      media="(prefers-color-scheme: light)"
+      name="twitter:image"
+      content="https://www.adomaspak.com/og-image.png"
     />
     <meta
-      name="theme-color"
-      content="#0a0a0a"
-      media="(prefers-color-scheme: dark)"
+      name="twitter:image:alt"
+      content='Dark-mode homepage of Adomas Pakalniškis&#39;s portfolio: "Software Systems Student, Software Developer".'
     />
 
     <!-- SEO -->
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://adomaspak.com" />
+    <link rel="canonical" href="https://www.adomaspak.com/" />
   </head>
   <body>
     <div id="root"></div>
