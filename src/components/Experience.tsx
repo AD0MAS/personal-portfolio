@@ -1,6 +1,8 @@
 import { GraduationCap, Waves, Wrench, type LucideIcon } from 'lucide-react'
 import { useLanguage } from '../hooks/useLanguage'
 import { EXPERIENCE_IDS, type ExperienceId } from '../constants/experience'
+import { card, cardIconCircle } from '../constants/cardStyles'
+import { sectionHeading } from '../constants/sectionStyles'
 
 const ICONS: Record<ExperienceId, LucideIcon> = {
   tutor: GraduationCap,
@@ -14,9 +16,7 @@ function Experience() {
 
   return (
     <section id="experience" className="max-w-2xl mx-auto px-6 py-24">
-      <h2 className="text-2xl font-semibold text-foreground mb-10">
-        {t.experience.heading}
-      </h2>
+      <h2 className={`${sectionHeading} mb-10`}>{t.experience.heading}</h2>
 
       <div className="space-y-4">
         {EXPERIENCE_IDS.map((id) => {
@@ -24,12 +24,9 @@ function Experience() {
           const Icon = ICONS[id]
 
           return (
-            <div
-              key={id}
-              className="border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 hover:bg-gray-100 dark:hover:bg-gray-800 hover:scale-[1.02] hover:shadow-md transition-all duration-200"
-            >
+            <div key={id} className={card}>
               <div className="flex gap-4">
-                <div className="shrink-0 w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                <div className={`${cardIconCircle} shrink-0`}>
                   <Icon size={18} className="text-foreground" />
                 </div>
 

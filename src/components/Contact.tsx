@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLanguage } from '../hooks/useLanguage'
 import { buttonFilled, buttonOutline } from '../constants/buttonStyles'
+import { sectionHeading } from '../constants/sectionStyles'
 
 const EMAIL = 'adomas.pakalniskis@gmail.com'
 
@@ -37,9 +38,7 @@ function Contact() {
 
   return (
     <section id="contact" className="max-w-2xl mx-auto px-6 py-24 text-center">
-      <h2 className="text-2xl font-semibold text-foreground mb-4">
-        {t.contact.heading}
-      </h2>
+      <h2 className={`${sectionHeading} mb-4`}>{t.contact.heading}</h2>
       <p className="text-gray-600 dark:text-gray-400 mb-10">
         {t.contact.subtitle}
       </p>

@@ -1,6 +1,8 @@
 import { Code2, Database, Wrench, type LucideIcon } from 'lucide-react'
 import { skillCategories, type SkillCategoryTitle } from '../data/skills'
 import { useLanguage } from '../hooks/useLanguage'
+import { card, cardIconCircle } from '../constants/cardStyles'
+import { sectionHeading } from '../constants/sectionStyles'
 
 const CATEGORY_ICONS: Record<SkillCategoryTitle, LucideIcon> = {
   Frontend: Code2,
@@ -14,7 +16,7 @@ function Skills() {
 
   return (
     <section id="skills" className="max-w-4xl mx-auto px-6 py-24">
-      <h2 className="text-2xl font-semibold text-foreground mb-10 text-center">
+      <h2 className={`${sectionHeading} mb-10 text-center`}>
         {t.skills.heading}
       </h2>
 
@@ -23,12 +25,9 @@ function Skills() {
           const Icon = CATEGORY_ICONS[category.title]
 
           return (
-            <div
-              key={category.title}
-              className="border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 hover:bg-gray-100 dark:hover:bg-gray-800 hover:scale-[1.02] hover:shadow-md transition-all duration-200"
-            >
+            <div key={category.title} className={card}>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                <div className={cardIconCircle}>
                   <Icon size={18} className="text-foreground" />
                 </div>
                 <h3 className="font-medium text-foreground">

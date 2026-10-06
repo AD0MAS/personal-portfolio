@@ -1,5 +1,6 @@
 import ProjectCard from './ProjectCard'
 import { useLanguage } from '../hooks/useLanguage'
+import { sectionHeading } from '../constants/sectionStyles'
 
 /** Projects section: grid of self-directed portfolio projects. */
 function Projects() {
@@ -7,7 +8,7 @@ function Projects() {
 
   return (
     <section id="projects" className="max-w-5xl mx-auto px-6 py-24">
-      <h2 className="text-2xl font-semibold text-foreground mb-10 text-center">
+      <h2 className={`${sectionHeading} mb-10 text-center`}>
         {t.projects.heading}
       </h2>
 

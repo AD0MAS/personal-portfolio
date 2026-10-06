@@ -64,7 +64,7 @@ function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="block px-3 py-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-foreground transition-all duration-200 whitespace-nowrap"
+                className="block px-3 py-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-foreground transition-colors duration-200 whitespace-nowrap"
               >
                 {link.label}
               </a>

@@ -1,4 +1,5 @@
 import type { ProjectEntry } from '../types/translations'
+import { card } from '../constants/cardStyles'
 
 interface ProjectCardProps {
   project: ProjectEntry
@@ -7,7 +8,7 @@ interface ProjectCardProps {
 /** Card displaying a single project: title, description, tech tags, and links. */
 function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 flex flex-col hover:bg-gray-100 dark:hover:bg-gray-800 hover:scale-[1.02] hover:shadow-md transition-all duration-200">
+    <div className={`${card} flex flex-col`}>
       <h3 className="font-medium text-foreground mb-2">{project.title}</h3>
       <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-1">
         {project.description}
