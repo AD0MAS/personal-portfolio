@@ -1,13 +1,15 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { LANGUAGES, type Language } from '../constants/languages'
 import { translations } from '../data/translations'
+import { readStorage, writeStorage } from '../utils/storage'
 import { LanguageContext } from './languageContext'
 
+// Must stay in sync with the pre-paint script in index.html (same key and fallback).
 const STORAGE_KEY = 'language'
 
 /** Reads the saved language preference, falling back to English. */
 function getInitialLanguage(): Language {
-  const saved = localStorage.getItem(STORAGE_KEY)
+  const saved = readStorage(STORAGE_KEY)
   return LANGUAGES.find((language) => language === saved) ?? 'en'
 }
 
@@ -16,7 +18,7 @@ function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>(getInitialLanguage)
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, language)
+    writeStorage(STORAGE_KEY, language)
     document.documentElement.lang = language
   }, [language])
 

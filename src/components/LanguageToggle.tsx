@@ -37,7 +37,8 @@ function LanguageToggle() {
   return (
     <div ref={containerRef} className="relative">
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        type="button"
+        onClick={() => setIsOpen((open) => !open)}
         aria-label="Change language"
         className="h-8 flex items-center gap-1.5 px-3 rounded-full bg-gray-200 dark:bg-gray-700 cursor-pointer"
       >
@@ -50,6 +51,7 @@ function LanguageToggle() {
           {LANGUAGES.map((code) => (
             <li key={code}>
               <button
+                type="button"
                 onClick={() => handleSelect(code)}
                 className="w-full flex items-center gap-2 px-4 py-2.5 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
               >

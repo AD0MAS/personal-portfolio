@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
 import LanguageToggle from './LanguageToggle'
 import { useLanguage } from '../hooks/useLanguage'
+import { useTheme } from '../hooks/useTheme'
 
 /** Fixed top navigation bar with smooth-scroll links to page sections. */
 function Navbar() {
@@ -10,6 +11,8 @@ function Navbar() {
   const [pressedHref, setPressedHref] = useState<string | null>(null)
   const closeTimeoutRef = useRef<number | null>(null)
   const { t } = useLanguage()
+  const { theme, toggleTheme } = useTheme()
+  const isDark = theme === 'dark'
 
   const clearCloseTimeout = () => {
     if (closeTimeoutRef.current !== null) {
@@ -70,18 +73,19 @@ function Navbar() {
         </ul>
 
         <div className="hidden lg:flex items-center justify-self-end gap-4">
-          <ThemeToggle />
+          <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
           <LanguageToggle />
         </div>
 
         <div className="flex items-center gap-4 lg:hidden">
-          <ThemeToggle />
+          <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
           <LanguageToggle />
           <button
+            type="button"
             onClick={() => {
               clearCloseTimeout()
               setPressedHref(null)
-              setIsOpen(!isOpen)
+              setIsOpen((open) => !open)
             }}
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             className="cursor-pointer"

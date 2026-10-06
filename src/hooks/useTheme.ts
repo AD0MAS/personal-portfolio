@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { THEMES, type Theme } from '../constants/themes'
+import { readStorage, writeStorage } from '../utils/storage'
 
+// Must stay in sync with the pre-paint script in index.html (same key and fallback).
 const STORAGE_KEY = 'theme'
 
 /** Reads the initial theme: saved preference first, falling back to OS setting. */
 function getInitialTheme(): Theme {
-  const saved = localStorage.getItem(STORAGE_KEY)
+  const saved = readStorage(STORAGE_KEY)
   const savedTheme = THEMES.find((theme) => theme === saved)
   if (savedTheme) return savedTheme
 
@@ -20,7 +22,7 @@ export function useTheme() {
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark')
-    localStorage.setItem(STORAGE_KEY, theme)
+    writeStorage(STORAGE_KEY, theme)
   }, [theme])
 
   const toggleTheme = () => {

@@ -1,14 +1,19 @@
 import { Sun, Moon } from 'lucide-react'
-import { useTheme } from '../hooks/useTheme'
+
+/** Props for ThemeToggle; the theme state itself lives in Navbar so every instance stays in sync. */
+interface ThemeToggleProps {
+  /** Whether the dark theme is currently active. */
+  isDark: boolean
+  /** Switches to the other theme. */
+  onToggle: () => void
+}
 
 /** Pill-shaped switch toggling between light and dark theme, with a sliding thumb. */
-function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme()
-  const isDark = theme === 'dark'
-
+function ThemeToggle({ isDark, onToggle }: ThemeToggleProps) {
   return (
     <button
-      onClick={toggleTheme}
+      type="button"
+      onClick={onToggle}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       className="relative w-14 h-8 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors cursor-pointer"
     >

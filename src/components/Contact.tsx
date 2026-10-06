@@ -63,6 +63,7 @@ function Contact() {
           {t.contact.linkedin}
         </a>
         <button
+          type="button"
           onClick={handleCopyEmail}
           className={`${buttonFilled} cursor-pointer whitespace-nowrap`}
         >
