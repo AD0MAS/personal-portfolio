@@ -46,31 +46,31 @@ function Navbar() {
   ]
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-background/60 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 z-50">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4 lg:grid lg:grid-cols-3">
+    <nav className="fixed top-0 left-0 z-50 w-full border-b border-gray-200 bg-background/60 backdrop-blur-lg dark:border-gray-800">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:grid lg:grid-cols-3">
         <a
           href="#"
           aria-label={t.a11y.home}
-          className={`${focusRing} relative w-10 h-8 block`}
+          className={`${focusRing} relative block h-8 w-10`}
         >
           <img
             src="/logo-light.svg"
             alt=""
-            className="absolute inset-0 w-full h-full object-contain opacity-100 dark:opacity-0 transition-opacity duration-150"
+            className="absolute inset-0 h-full w-full object-contain opacity-100 transition-opacity duration-150 dark:opacity-0"
           />
           <img
             src="/logo-dark.svg"
             alt=""
-            className="absolute inset-0 w-full h-full object-contain opacity-0 dark:opacity-100 transition-opacity duration-150"
+            className="absolute inset-0 h-full w-full object-contain opacity-0 transition-opacity duration-150 dark:opacity-100"
           />
         </a>
 
-        <ul className="hidden lg:flex items-center justify-self-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+        <ul className="hidden items-center gap-2 justify-self-center text-sm text-gray-700 lg:flex dark:text-gray-300">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className={`${focusRing} block px-3 py-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-foreground transition-colors duration-200 focus-visible:duration-0 whitespace-nowrap`}
+                className={`${focusRing} block rounded-full px-3 py-1.5 whitespace-nowrap transition-colors duration-200 hover:bg-gray-100 hover:text-foreground focus-visible:duration-0 dark:hover:bg-gray-800`}
               >
                 {link.label}
               </a>
@@ -78,7 +78,7 @@ function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden lg:flex items-center justify-self-end gap-4">
+        <div className="hidden items-center gap-4 justify-self-end lg:flex">
           <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
           <LanguageToggle />
         </div>
@@ -106,7 +106,7 @@ function Navbar() {
       {isOpen && (
         <ul
           id={mobileMenuId}
-          className="lg:hidden flex flex-col items-center gap-1 pb-6 text-sm text-gray-700 dark:text-gray-300"
+          className="flex flex-col items-center gap-1 pb-6 text-sm text-gray-700 lg:hidden dark:text-gray-300"
         >
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -125,9 +125,9 @@ function Navbar() {
                     setPressedHref(null)
                 }}
                 onClick={() => handleMobileLinkClick(link.href)}
-                className={`${focusRing} block px-5 py-3 rounded-full [-webkit-tap-highlight-color:transparent] active:bg-gray-200 dark:active:bg-gray-700 active:text-foreground ${
+                className={`${focusRing} block rounded-full px-5 py-3 [-webkit-tap-highlight-color:transparent] active:bg-gray-200 active:text-foreground dark:active:bg-gray-700 ${
                   pressedHref === link.href
-                    ? 'bg-gray-200 dark:bg-gray-700 text-foreground'
+                    ? 'bg-gray-200 text-foreground dark:bg-gray-700'
                     : 'hover:bg-gray-100 dark:hover:bg-gray-800'
                 }`}
               >

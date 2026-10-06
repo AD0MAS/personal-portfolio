@@ -8,7 +8,7 @@ interface FlagIconProps {
 function FlagIcon({ code }: FlagIconProps) {
   if (code === 'en') {
     return (
-      <svg viewBox="0 0 20 14" className="w-4 h-3 rounded-sm">
+      <svg viewBox="0 0 20 14" className="h-3 w-4 rounded-sm">
         <rect width="20" height="14" fill="#00247d" />
         <path d="M0 0L20 14M20 0L0 14" stroke="#fff" strokeWidth="2.8" />
         <path d="M0 0L20 14M20 0L0 14" stroke="#cf142b" strokeWidth="1.4" />
@@ -19,7 +19,7 @@ function FlagIcon({ code }: FlagIconProps) {
   }
 
   return (
-    <svg viewBox="0 0 20 14" className="w-4 h-3 rounded-sm">
+    <svg viewBox="0 0 20 14" className="h-3 w-4 rounded-sm">
       <rect width="20" height="4.67" fill="#fdb913" />
       <rect y="4.67" width="20" height="4.67" fill="#006a44" />
       <rect y="9.33" width="20" height="4.67" fill="#c1272d" />

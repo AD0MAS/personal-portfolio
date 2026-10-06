@@ -37,9 +37,9 @@ function Contact() {
   }
 
   return (
-    <section id="contact" className="max-w-2xl mx-auto px-6 py-24 text-center">
+    <section id="contact" className="mx-auto max-w-2xl px-6 py-24 text-center">
       <h2 className={`${sectionHeading} mb-4`}>{t.contact.heading}</h2>
-      <p className="text-gray-600 dark:text-gray-400 mb-10">
+      <p className="mb-10 text-gray-600 dark:text-gray-400">
         {t.contact.subtitle}
       </p>
 
@@ -73,7 +73,7 @@ function Contact() {
             </span>
             <span
               aria-hidden="true"
-              className="col-start-1 row-start-1 invisible"
+              className="invisible col-start-1 row-start-1"
             >
               {copied ? t.contact.copyEmail : t.contact.copied}
             </span>

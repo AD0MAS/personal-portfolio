@@ -8,17 +8,17 @@ function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col justify-center items-center text-center px-6 motion-safe:animate-fade-in-up"
+      className="flex min-h-screen flex-col items-center justify-center px-6 text-center motion-safe:animate-fade-in-up"
     >
-      <p className="text-gray-500 dark:text-gray-400 mb-3">{t.hero.greeting}</p>
+      <p className="mb-3 text-gray-500 dark:text-gray-400">{t.hero.greeting}</p>
 
-      <h1 className="text-3xl sm:text-5xl font-bold text-foreground mb-4">
+      <h1 className="mb-4 text-3xl font-bold text-foreground sm:text-5xl">
         {t.hero.titleLine1}
         <br />
         {t.hero.titleLine2}
       </h1>
 
-      <p className="text-gray-600 dark:text-gray-400 max-w-xl mb-8">
+      <p className="mb-8 max-w-xl text-gray-600 dark:text-gray-400">
         {t.hero.subtitle}
       </p>
 

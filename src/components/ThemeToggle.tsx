@@ -19,10 +19,10 @@ function ThemeToggle({ isDark, onToggle }: ThemeToggleProps) {
       type="button"
       onClick={onToggle}
       aria-label={isDark ? t.a11y.switchToLight : t.a11y.switchToDark}
-      className={`${focusRing} relative w-14 h-8 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors cursor-pointer`}
+      className={`${focusRing} relative h-8 w-14 cursor-pointer rounded-full bg-gray-200 transition-colors dark:bg-gray-700`}
     >
       <span
-        className={`absolute top-1 left-1 w-6 h-6 rounded-full bg-white dark:bg-gray-900 shadow-md flex items-center justify-center transition-transform ${
+        className={`absolute top-1 left-1 flex h-6 w-6 items-center justify-center rounded-full bg-white shadow-md transition-transform dark:bg-gray-900 ${
           isDark ? 'translate-x-6' : 'translate-x-0'
         }`}
       >

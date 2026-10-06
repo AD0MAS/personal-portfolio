@@ -15,18 +15,18 @@ function Skills() {
   const { t } = useLanguage()
 
   return (
-    <section id="skills" className="max-w-4xl mx-auto px-6 py-24">
+    <section id="skills" className="mx-auto max-w-4xl px-6 py-24">
       <h2 className={`${sectionHeading} mb-10 text-center`}>
         {t.skills.heading}
       </h2>
 
-      <ul role="list" className="grid sm:grid-cols-3 gap-6">
+      <ul role="list" className="grid gap-6 sm:grid-cols-3">
         {skillCategories.map((category) => {
           const Icon = CATEGORY_ICONS[category.title]
 
           return (
             <li key={category.title} className={card}>
-              <div className="flex items-center gap-3 mb-4">
+              <div className="mb-4 flex items-center gap-3">
                 <div className={cardIconCircle}>
                   <Icon size={18} className="text-foreground" />
                 </div>
@@ -35,7 +35,7 @@ function Skills() {
                 </h3>
               </div>
 
-              <ul className="space-y-2 text-gray-600 dark:text-gray-400 text-sm">
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                 {category.skills.map((skill) => (
                   <li key={skill}>{skill}</li>
                 ))}

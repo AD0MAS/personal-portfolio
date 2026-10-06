@@ -59,7 +59,7 @@ function LanguageToggle() {
         aria-label={t.a11y.changeLanguage}
         aria-expanded={isOpen}
         aria-controls={listId}
-        className={`${focusRing} h-8 flex items-center gap-1.5 px-3 rounded-full bg-gray-200 dark:bg-gray-700 cursor-pointer`}
+        className={`${focusRing} flex h-8 cursor-pointer items-center gap-1.5 rounded-full bg-gray-200 px-3 dark:bg-gray-700`}
       >
         <FlagIcon code={language} />
         {isOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
@@ -68,7 +68,7 @@ function LanguageToggle() {
       {isOpen && (
         <ul
           id={listId}
-          className="absolute right-0 mt-2 w-40 bg-background dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg overflow-hidden"
+          className="absolute right-0 mt-2 w-40 overflow-hidden rounded-xl border border-gray-200 bg-background shadow-lg dark:border-gray-700 dark:bg-gray-900"
         >
           {LANGUAGES.map((code) => (
             <li key={code}>
@@ -76,7 +76,7 @@ function LanguageToggle() {
                 type="button"
                 onClick={() => handleSelect(code)}
                 aria-current={code === language ? 'true' : undefined}
-                className={`${focusRingInset} w-full flex items-center gap-2 px-4 py-2.5 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer`}
+                className={`${focusRingInset} flex w-full cursor-pointer items-center gap-2 px-4 py-2.5 text-sm hover:bg-gray-100 dark:hover:bg-gray-800`}
               >
                 <FlagIcon code={code} />
                 <span lang={code} className="flex-1 text-left">
