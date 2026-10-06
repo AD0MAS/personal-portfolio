@@ -1,7 +1,12 @@
-import { GraduationCap, Waves, Wrench } from 'lucide-react'
+import { GraduationCap, Waves, Wrench, type LucideIcon } from 'lucide-react'
 import { useLanguage } from '../hooks/useLanguage'
+import { EXPERIENCE_IDS, type ExperienceId } from '../constants/experience'
 
-const ICONS = [GraduationCap, Waves, Wrench]
+const ICONS: Record<ExperienceId, LucideIcon> = {
+  tutor: GraduationCap,
+  lifeguard: Waves,
+  technician: Wrench,
+}
 
 /** Experience section: brief highlights from work history, most recent first. */
 function Experience() {
@@ -14,12 +19,13 @@ function Experience() {
       </h2>
 
       <div className="space-y-4">
-        {t.experience.entries.map((entry, index) => {
-          const Icon = ICONS[index]
+        {EXPERIENCE_IDS.map((id) => {
+          const entry = t.experience.entries[id]
+          const Icon = ICONS[id]
 
           return (
             <div
-              key={entry.role}
+              key={id}
               className="border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 hover:bg-gray-100 dark:hover:bg-gray-800 hover:scale-[1.02] hover:shadow-md transition-all duration-200"
             >
               <div className="flex gap-4">

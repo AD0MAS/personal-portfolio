@@ -1,8 +1,8 @@
-import { Code2, Database, Wrench } from 'lucide-react'
-import { skillCategories } from '../data/skills'
+import { Code2, Database, Wrench, type LucideIcon } from 'lucide-react'
+import { skillCategories, type SkillCategoryTitle } from '../data/skills'
 import { useLanguage } from '../hooks/useLanguage'
 
-const CATEGORY_ICONS: Record<string, typeof Code2> = {
+const CATEGORY_ICONS: Record<SkillCategoryTitle, LucideIcon> = {
   Frontend: Code2,
   Backend: Database,
   Tools: Wrench,

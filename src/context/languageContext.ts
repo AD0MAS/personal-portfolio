@@ -1,5 +1,6 @@
 import { createContext } from 'react'
-import type { Language, Translations } from '../types/translations'
+import type { Language } from '../constants/languages'
+import type { Translations } from '../types/translations'
 
 /** Value exposed by LanguageProvider: the active language, its setter, and the matching translations. */
 interface LanguageContextValue {

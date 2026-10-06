@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
-
-type Theme = 'light' | 'dark'
+import { THEMES, type Theme } from '../constants/themes'
 
 const STORAGE_KEY = 'theme'
 
 /** Reads the initial theme: saved preference first, falling back to OS setting. */
 function getInitialTheme(): Theme {
   const saved = localStorage.getItem(STORAGE_KEY)
-  if (saved === 'light' || saved === 'dark') return saved
+  const savedTheme = THEMES.find((theme) => theme === saved)
+  if (savedTheme) return savedTheme
 
   return window.matchMedia('(prefers-color-scheme: dark)').matches
     ? 'dark'

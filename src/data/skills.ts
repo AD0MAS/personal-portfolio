@@ -38,3 +38,6 @@ export const skillCategories = [
     ],
   },
 ] as const
+
+/** Title of a skill category, e.g. 'Frontend'. */
+export type SkillCategoryTitle = (typeof skillCategories)[number]['title']

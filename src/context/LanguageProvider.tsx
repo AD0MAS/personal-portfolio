@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react'
-import type { Language } from '../types/translations'
+import { LANGUAGES, type Language } from '../constants/languages'
 import { translations } from '../data/translations'
 import { LanguageContext } from './languageContext'
 
@@ -8,7 +8,7 @@ const STORAGE_KEY = 'language'
 /** Reads the saved language preference, falling back to English. */
 function getInitialLanguage(): Language {
   const saved = localStorage.getItem(STORAGE_KEY)
-  return saved === 'en' || saved === 'lt' ? saved : 'en'
+  return LANGUAGES.find((language) => language === saved) ?? 'en'
 }
 
 /** Provides the active language and translated strings to the component tree. */

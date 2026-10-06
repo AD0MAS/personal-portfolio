@@ -1,5 +1,7 @@
+import type { Language } from '../constants/languages'
+
 interface FlagIconProps {
-  code: 'en' | 'lt'
+  code: Language
 }
 
 /** Small flat SVG flag icon for the language switcher (avoids emoji flags, which don't render on Windows). */

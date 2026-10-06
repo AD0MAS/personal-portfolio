@@ -1,4 +1,4 @@
-export type Language = 'en' | 'lt'
+import type { ExperienceId } from '../constants/experience'
 
 /** A single work experience entry. */
 interface ExperienceEntry {
@@ -17,7 +17,7 @@ export interface ProjectEntry {
   liveUrl: string
 }
 
-/** Shape of the translation dictionary — every section's text, keyed by language. */
+/** Shape of one language's translation dictionary: every section's text and content entries. */
 export interface Translations {
   nav: {
     home: string
@@ -46,7 +46,7 @@ export interface Translations {
   }
   experience: {
     heading: string
-    entries: ExperienceEntry[]
+    entries: Record<ExperienceId, ExperienceEntry>
   }
   projects: {
     heading: string

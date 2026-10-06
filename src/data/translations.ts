@@ -1,7 +1,8 @@
+import type { Language } from '../constants/languages'
 import type { Translations } from '../types/translations'
 
 /** Full translation dictionary for the site, keyed by language. */
-export const translations: Record<'en' | 'lt', Translations> = {
+export const translations: Record<Language, Translations> = {
   en: {
     nav: {
       home: 'Home',
@@ -32,28 +33,28 @@ export const translations: Record<'en' | 'lt', Translations> = {
     },
     experience: {
       heading: 'Experience',
-      entries: [
-        {
+      entries: {
+        tutor: {
           role: 'Mathematics Tutor',
           period: '2025 - Present',
           org: 'Self-employed',
           description: 'Teaching mathematics to 15 students, grades 5-12.',
         },
-        {
+        lifeguard: {
           role: 'Lifeguard',
           period: 'Summer 2025',
           org: 'Cedar Point / Work and Travel USA',
           description:
             'Monitored guest safety in a high-traffic aquatic environment; CPR and AED certified.',
         },
-        {
+        technician: {
           role: 'Technician Assistant',
           period: 'Summers 2021-2024',
           org: 'TPS - Technological Service Solutions',
           description:
             'Assisted with installation and configuration of security systems and technical infrastructure.',
         },
-      ],
+      },
     },
     projects: {
       heading: 'Projects',
@@ -125,28 +126,28 @@ export const translations: Record<'en' | 'lt', Translations> = {
     },
     experience: {
       heading: 'Patirtis',
-      entries: [
-        {
+      entries: {
+        tutor: {
           role: 'Matematikos korepetitorius',
           period: '2025 - dabar',
           org: 'Individuali veikla',
           description: 'Mokau matematiką 15 moksleivių (5-12 klasės).',
         },
-        {
+        lifeguard: {
           role: 'Gelbėtojas',
           period: '2025 m. vasara',
           org: 'Cedar Point / Work and Travel USA',
           description:
             'Užtikrinau lankytojų saugumą didelio srauto vandens parke; įgijau CPR ir AED sertifikatus.',
         },
-        {
+        technician: {
           role: 'Technikas asistentas',
           period: '2021-2024 m. vasaros',
           org: 'TPS - Technologinių paslaugų sprendimai',
           description:
             'Padėjau diegti ir konfigūruoti saugos sistemas bei techninę infrastruktūrą.',
         },
-      ],
+      },
     },
     projects: {
       heading: 'Projektai',
