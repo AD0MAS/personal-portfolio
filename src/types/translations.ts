@@ -63,4 +63,13 @@ export interface Translations {
   footer: {
     builtWith: string
   }
+  /** Accessible names for controls without visible text. */
+  a11y: {
+    home: string
+    openMenu: string
+    closeMenu: string
+    switchToDark: string
+    switchToLight: string
+    changeLanguage: string
+  }
 }

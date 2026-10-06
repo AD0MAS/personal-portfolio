@@ -1,4 +1,5 @@
 import { Sun, Moon } from 'lucide-react'
+import { useLanguage } from '../hooks/useLanguage'
 
 /** Props for ThemeToggle; the theme state itself lives in Navbar so every instance stays in sync. */
 interface ThemeToggleProps {
@@ -10,11 +11,13 @@ interface ThemeToggleProps {
 
 /** Pill-shaped switch toggling between light and dark theme, with a sliding thumb. */
 function ThemeToggle({ isDark, onToggle }: ThemeToggleProps) {
+  const { t } = useLanguage()
+
   return (
     <button
       type="button"
       onClick={onToggle}
-      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-label={isDark ? t.a11y.switchToLight : t.a11y.switchToDark}
       className="relative w-14 h-8 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors cursor-pointer"
     >
       <span

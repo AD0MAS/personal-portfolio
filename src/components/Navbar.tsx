@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
 import LanguageToggle from './LanguageToggle'
@@ -10,6 +10,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [pressedHref, setPressedHref] = useState<string | null>(null)
   const closeTimeoutRef = useRef<number | null>(null)
+  const mobileMenuId = useId()
   const { t } = useLanguage()
   const { theme, toggleTheme } = useTheme()
   const isDark = theme === 'dark'
@@ -46,7 +47,11 @@ function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-background/60 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 z-50">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4 lg:grid lg:grid-cols-3">
-        <a href="#" aria-label="Home" className="relative w-10 h-8 block">
+        <a
+          href="#"
+          aria-label={t.a11y.home}
+          className="relative w-10 h-8 block"
+        >
           <img
             src="/logo-light.svg"
             alt=""
@@ -87,7 +92,9 @@ function Navbar() {
               setPressedHref(null)
               setIsOpen((open) => !open)
             }}
-            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-label={isOpen ? t.a11y.closeMenu : t.a11y.openMenu}
+            aria-expanded={isOpen}
+            aria-controls={mobileMenuId}
             className="cursor-pointer"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -96,7 +103,10 @@ function Navbar() {
       </div>
 
       {isOpen && (
-        <ul className="lg:hidden flex flex-col items-center gap-1 pb-6 text-sm text-gray-700 dark:text-gray-300">
+        <ul
+          id={mobileMenuId}
+          className="lg:hidden flex flex-col items-center gap-1 pb-6 text-sm text-gray-700 dark:text-gray-300"
+        >
           {navLinks.map((link) => (
             <li key={link.href}>
               <a

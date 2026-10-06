@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import { ChevronDown, ChevronUp, Check } from 'lucide-react'
 import { useLanguage } from '../hooks/useLanguage'
 import { LANGUAGES, type Language } from '../constants/languages'
@@ -11,11 +11,15 @@ const LANGUAGE_LABELS: Record<Language, string> = {
 
 /** Pill-shaped dropdown for switching between English and Lithuanian, matching ThemeToggle's style. */
 function LanguageToggle() {
-  const { language, setLanguage } = useLanguage()
+  const { language, setLanguage, t } = useLanguage()
   const [isOpen, setIsOpen] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+  const listId = useId()
 
   useEffect(() => {
+    if (!isOpen) return
+
     function handleClickOutside(event: MouseEvent) {
       if (
         containerRef.current &&
@@ -25,9 +29,20 @@ function LanguageToggle() {
       }
     }
 
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        setIsOpen(false)
+        triggerRef.current?.focus()
+      }
+    }
+
     document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isOpen])
 
   const handleSelect = (code: Language) => {
     setLanguage(code)
@@ -37,9 +52,12 @@ function LanguageToggle() {
   return (
     <div ref={containerRef} className="relative">
       <button
+        ref={triggerRef}
         type="button"
         onClick={() => setIsOpen((open) => !open)}
-        aria-label="Change language"
+        aria-label={t.a11y.changeLanguage}
+        aria-expanded={isOpen}
+        aria-controls={listId}
         className="h-8 flex items-center gap-1.5 px-3 rounded-full bg-gray-200 dark:bg-gray-700 cursor-pointer"
       >
         <FlagIcon code={language} />
@@ -47,16 +65,20 @@ function LanguageToggle() {
       </button>
 
       {isOpen && (
-        <ul className="absolute right-0 mt-2 w-40 bg-background dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg overflow-hidden">
+        <ul
+          id={listId}
+          className="absolute right-0 mt-2 w-40 bg-background dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg overflow-hidden"
+        >
           {LANGUAGES.map((code) => (
             <li key={code}>
               <button
                 type="button"
                 onClick={() => handleSelect(code)}
+                aria-current={code === language ? 'true' : undefined}
                 className="w-full flex items-center gap-2 px-4 py-2.5 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
               >
                 <FlagIcon code={code} />
-                <span className="flex-1 text-left">
+                <span lang={code} className="flex-1 text-left">
                   {LANGUAGE_LABELS[code]}
                 </span>
                 {code === language && (

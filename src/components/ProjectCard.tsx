@@ -30,6 +30,7 @@ function ProjectCard({ project }: ProjectCardProps) {
           href={project.githubUrl}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`GitHub: ${project.title}`}
           className="hover:underline"
         >
           GitHub
@@ -39,6 +40,7 @@ function ProjectCard({ project }: ProjectCardProps) {
           href={project.liveUrl}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`Live Demo: ${project.title}`}
           className="hover:underline"
         >
           Live Demo

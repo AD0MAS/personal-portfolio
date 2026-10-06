@@ -95,6 +95,14 @@ export const translations: Record<Language, Translations> = {
     footer: {
       builtWith: 'Built with React + TypeScript + Tailwind',
     },
+    a11y: {
+      home: 'Home',
+      openMenu: 'Open menu',
+      closeMenu: 'Close menu',
+      switchToDark: 'Switch to dark mode',
+      switchToLight: 'Switch to light mode',
+      changeLanguage: 'Change language',
+    },
   },
   lt: {
     nav: {
@@ -186,6 +194,14 @@ export const translations: Record<Language, Translations> = {
     },
     footer: {
       builtWith: 'Sukurta su React + TypeScript + Tailwind',
+    },
+    a11y: {
+      home: 'Pradžia',
+      openMenu: 'Atidaryti meniu',
+      closeMenu: 'Uždaryti meniu',
+      switchToDark: 'Įjungti tamsųjį režimą',
+      switchToLight: 'Įjungti šviesųjį režimą',
+      changeLanguage: 'Pakeisti kalbą',
     },
   },
 }
