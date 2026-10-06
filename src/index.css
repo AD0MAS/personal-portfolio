@@ -1,4 +1,7 @@
-@import 'tailwindcss';
+/* Scan only app sources for classes, so docs like README.md can't add stray utilities. */
+@import 'tailwindcss' source(none);
+@source '.';
+@source '../index.html';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
