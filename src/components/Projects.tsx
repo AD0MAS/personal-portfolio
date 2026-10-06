@@ -12,11 +12,11 @@ function Projects() {
         {t.projects.heading}
       </h2>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <ul role="list" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {t.projects.entries.map((project) => (
           <ProjectCard key={project.title} project={project} />
         ))}
-      </div>
+      </ul>
     </section>
   )
 }

@@ -4,6 +4,7 @@ import ThemeToggle from './ThemeToggle'
 import LanguageToggle from './LanguageToggle'
 import { useLanguage } from '../hooks/useLanguage'
 import { useTheme } from '../hooks/useTheme'
+import { focusRing } from '../constants/focusStyles'
 
 /** Fixed top navigation bar with smooth-scroll links to page sections. */
 function Navbar() {
@@ -50,7 +51,7 @@ function Navbar() {
         <a
           href="#"
           aria-label={t.a11y.home}
-          className="relative w-10 h-8 block"
+          className={`${focusRing} relative w-10 h-8 block`}
         >
           <img
             src="/logo-light.svg"
@@ -69,7 +70,7 @@ function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="block px-3 py-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-foreground transition-colors duration-200 whitespace-nowrap"
+                className={`${focusRing} block px-3 py-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-foreground transition-colors duration-200 focus-visible:duration-0 whitespace-nowrap`}
               >
                 {link.label}
               </a>
@@ -95,7 +96,7 @@ function Navbar() {
             aria-label={isOpen ? t.a11y.closeMenu : t.a11y.openMenu}
             aria-expanded={isOpen}
             aria-controls={mobileMenuId}
-            className="cursor-pointer"
+            className={`${focusRing} cursor-pointer`}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -124,7 +125,7 @@ function Navbar() {
                     setPressedHref(null)
                 }}
                 onClick={() => handleMobileLinkClick(link.href)}
-                className={`block px-5 py-3 rounded-full [-webkit-tap-highlight-color:transparent] active:bg-gray-200 dark:active:bg-gray-700 active:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 dark:focus-visible:outline-gray-100 ${
+                className={`${focusRing} block px-5 py-3 rounded-full [-webkit-tap-highlight-color:transparent] active:bg-gray-200 dark:active:bg-gray-700 active:text-foreground ${
                   pressedHref === link.href
                     ? 'bg-gray-200 dark:bg-gray-700 text-foreground'
                     : 'hover:bg-gray-100 dark:hover:bg-gray-800'

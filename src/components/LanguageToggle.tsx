@@ -3,6 +3,7 @@ import { ChevronDown, ChevronUp, Check } from 'lucide-react'
 import { useLanguage } from '../hooks/useLanguage'
 import { LANGUAGES, type Language } from '../constants/languages'
 import FlagIcon from './FlagIcon'
+import { focusRing, focusRingInset } from '../constants/focusStyles'
 
 const LANGUAGE_LABELS: Record<Language, string> = {
   en: 'English',
@@ -58,7 +59,7 @@ function LanguageToggle() {
         aria-label={t.a11y.changeLanguage}
         aria-expanded={isOpen}
         aria-controls={listId}
-        className="h-8 flex items-center gap-1.5 px-3 rounded-full bg-gray-200 dark:bg-gray-700 cursor-pointer"
+        className={`${focusRing} h-8 flex items-center gap-1.5 px-3 rounded-full bg-gray-200 dark:bg-gray-700 cursor-pointer`}
       >
         <FlagIcon code={language} />
         {isOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
@@ -75,7 +76,7 @@ function LanguageToggle() {
                 type="button"
                 onClick={() => handleSelect(code)}
                 aria-current={code === language ? 'true' : undefined}
-                className="w-full flex items-center gap-2 px-4 py-2.5 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
+                className={`${focusRingInset} w-full flex items-center gap-2 px-4 py-2.5 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer`}
               >
                 <FlagIcon code={code} />
                 <span lang={code} className="flex-1 text-left">

@@ -20,12 +20,12 @@ function Skills() {
         {t.skills.heading}
       </h2>
 
-      <div className="grid sm:grid-cols-3 gap-6">
+      <ul role="list" className="grid sm:grid-cols-3 gap-6">
         {skillCategories.map((category) => {
           const Icon = CATEGORY_ICONS[category.title]
 
           return (
-            <div key={category.title} className={card}>
+            <li key={category.title} className={card}>
               <div className="flex items-center gap-3 mb-4">
                 <div className={cardIconCircle}>
                   <Icon size={18} className="text-foreground" />
@@ -40,10 +40,10 @@ function Skills() {
                   <li key={skill}>{skill}</li>
                 ))}
               </ul>
-            </div>
+            </li>
           )
         })}
-      </div>
+      </ul>
     </section>
   )
 }

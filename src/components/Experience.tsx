@@ -18,13 +18,13 @@ function Experience() {
     <section id="experience" className="max-w-2xl mx-auto px-6 py-24">
       <h2 className={`${sectionHeading} mb-10`}>{t.experience.heading}</h2>
 
-      <div className="space-y-4">
+      <ul role="list" className="space-y-4">
         {EXPERIENCE_IDS.map((id) => {
           const entry = t.experience.entries[id]
           const Icon = ICONS[id]
 
           return (
-            <div key={id} className={card}>
+            <li key={id} className={card}>
               <div className="flex gap-4">
                 <div className={`${cardIconCircle} shrink-0`}>
                   <Icon size={18} className="text-foreground" />
@@ -47,10 +47,10 @@ function Experience() {
                   </p>
                 </div>
               </div>
-            </div>
+            </li>
           )
         })}
-      </div>
+      </ul>
     </section>
   )
 }

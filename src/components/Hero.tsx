@@ -8,7 +8,7 @@ function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col justify-center items-center text-center px-6 animate-fade-in-up"
+      className="min-h-screen flex flex-col justify-center items-center text-center px-6 motion-safe:animate-fade-in-up"
     >
       <p className="text-gray-500 dark:text-gray-400 mb-3">{t.hero.greeting}</p>
 
