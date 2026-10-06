@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { LanguageContext } from '../context/LanguageContext'
+import { LanguageContext } from '../context/languageContext'
 
 /** Provides access to the active language, setter, and translated strings. Must be used within a LanguageProvider. */
 export function useLanguage() {

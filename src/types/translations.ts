@@ -1,7 +1,7 @@
 export type Language = 'en' | 'lt'
 
 /** A single work experience entry. */
-export interface ExperienceEntry {
+interface ExperienceEntry {
   role: string
   period: string
   org: string

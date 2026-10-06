@@ -1,14 +1,7 @@
-import { createContext, useEffect, useState, type ReactNode } from 'react'
-import type { Language, Translations } from '../types/translations'
+import { useEffect, useState, type ReactNode } from 'react'
+import type { Language } from '../types/translations'
 import { translations } from '../data/translations'
-
-interface LanguageContextValue {
-  language: Language
-  setLanguage: (language: Language) => void
-  t: Translations
-}
-
-export const LanguageContext = createContext<LanguageContextValue | null>(null)
+import { LanguageContext } from './languageContext'
 
 const STORAGE_KEY = 'language'
 
@@ -19,7 +12,7 @@ function getInitialLanguage(): Language {
 }
 
 /** Provides the active language and translated strings to the component tree. */
-export function LanguageProvider({ children }: { children: ReactNode }) {
+function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>(getInitialLanguage)
 
   useEffect(() => {
@@ -35,3 +28,5 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     </LanguageContext.Provider>
   )
 }
+
+export default LanguageProvider

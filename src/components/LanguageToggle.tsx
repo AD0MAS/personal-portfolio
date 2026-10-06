@@ -41,7 +41,7 @@ function LanguageToggle() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Change language"
-        className="h-8 flex items-center gap-1.5 px-3 rounded-full bg-gray-200 dark:bg-gray-700 text-sm transition-transform cursor-pointer"
+        className="h-8 flex items-center gap-1.5 px-3 rounded-full bg-gray-200 dark:bg-gray-700 cursor-pointer"
       >
         <FlagIcon code={active.code} />
         {isOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}

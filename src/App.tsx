@@ -1,4 +1,4 @@
-import { LanguageProvider } from './context/LanguageContext'
+import LanguageProvider from './context/LanguageProvider'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
