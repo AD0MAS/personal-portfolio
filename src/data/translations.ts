@@ -23,9 +23,9 @@ export const translations: Record<Language, Translations> = {
     about: {
       heading: 'About',
       paragraph1:
-        "I'm a Software Systems student focused on building useful, well-designed software. With a foundation in programming, algorithms, databases, and software engineering, I build web applications across the stack, from the user interface to the database, using React, Next.js, TypeScript, and PostgreSQL — learning by building real projects from scratch.",
+        "I'm a Software Systems student focused on building useful, well-designed software. With a foundation in programming, algorithms, databases, and software engineering, I build web applications across the stack, from the user interface to the database, using React, Next.js, TypeScript, and PostgreSQL – learning by building real projects from scratch.",
       paragraph2:
-        "What draws me to programming is the combination of logic and craft — solving a problem is only half the job; building something people can actually use well is the other half. I'm driven by continuous improvement and interested in the intersection of technology, products, and business.",
+        "What draws me to programming is the combination of logic and craft – solving a problem is only half the job; building something people can actually use well is the other half. I'm driven by continuous improvement and interested in the intersection of technology, products, and business.",
       cta: 'Currently looking for internship opportunities where I can learn, contribute, and build something meaningful.',
     },
     skills: {
@@ -86,7 +86,7 @@ export const translations: Record<Language, Translations> = {
     contact: {
       heading: 'Contact',
       subtitle:
-        'Currently looking for internship opportunities — feel free to reach out.',
+        'Currently looking for internship opportunities – feel free to reach out.',
       github: 'GitHub',
       linkedin: 'LinkedIn',
       copyEmail: 'Copy Email',
@@ -126,7 +126,7 @@ export const translations: Record<Language, Translations> = {
       paragraph1:
         'Esu Programų sistemų studentas, siekiantis kurti naudingą ir gerai apgalvotą programinę įrangą. Turėdamas tvirtus programavimo, algoritmų, duomenų bazių ir programinės įrangos inžinerijos pagrindus, kuriu web aplikacijas nuo vartotojo sąsajos iki duomenų bazės, naudodamas React, Next.js, TypeScript ir PostgreSQL, ir mokausi kurdamas realius projektus nuo nulio.',
       paragraph2:
-        'Programavime mane labiausiai žavi logikos ir kūrybos derinys: išspręsti problemą yra tik pusė darbo, o sukurti tai, kuo žmonėms būtų patogu naudotis — kita pusė. Mane motyvuoja nuolatinis tobulėjimas, taip pat domina tai, kaip technologijos ir produktai kuria vertę verslui.',
+        'Programavime mane labiausiai žavi logikos ir kūrybos derinys: išspręsti problemą yra tik pusė darbo, o sukurti tai, kuo žmonėms būtų patogu naudotis – kita pusė. Mane motyvuoja nuolatinis tobulėjimas, taip pat domina tai, kaip technologijos ir produktai kuria vertę verslui.',
       cta: 'Šiuo metu ieškau praktikos galimybių, kur galėčiau mokytis, prisidėti prie komandos ir kurti vertę teikiančius sprendimus.',
     },
     skills: {
@@ -186,7 +186,7 @@ export const translations: Record<Language, Translations> = {
     },
     contact: {
       heading: 'Kontaktai',
-      subtitle: 'Šiuo metu ieškau praktikos galimybių — drąsiai susisiekite.',
+      subtitle: 'Šiuo metu ieškau praktikos galimybių – drąsiai susisiekite.',
       github: 'GitHub',
       linkedin: 'LinkedIn',
       copyEmail: 'Kopijuoti el. paštą',

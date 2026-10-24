@@ -1,7 +1,7 @@
 import { useLanguage } from '../hooks/useLanguage'
 import { sectionHeading } from '../constants/sectionStyles'
 
-/** About section: short personal narrative — who I am, what draws me to programming, and current goal. */
+/** About section: short personal narrative – who I am, what draws me to programming, and current goal. */
 function About() {
   const { t } = useLanguage()
 
