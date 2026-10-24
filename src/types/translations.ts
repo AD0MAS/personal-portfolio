@@ -14,7 +14,7 @@ export interface ProjectEntry {
   description: string
   tech: readonly string[]
   githubUrl: string
-  liveUrl: string
+  liveUrl?: string
 }
 
 /** Shape of one language's translation dictionary: every section's text and content entries. */

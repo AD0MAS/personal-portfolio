@@ -60,6 +60,19 @@ export const translations: Record<Language, Translations> = {
       heading: 'Projects',
       entries: [
         {
+          title: 'Chalk',
+          description:
+            'A full-stack app I use daily to run my tutoring business – students, scheduling, lesson notes, payments and tax estimates, with Google Calendar sync and open banking.',
+          tech: [
+            'Next.js',
+            'TypeScript',
+            'PostgreSQL',
+            'Supabase',
+            'Tailwind CSS',
+          ],
+          githubUrl: 'https://github.com/AD0MAS/chalk-app',
+        },
+        {
           title: 'GoHybrid',
           description:
             'A full-stack training platform for hybrid athletes with a structured workout builder, weekly planning, a focused workout mode, progress analytics, and user authentication.',
@@ -160,6 +173,19 @@ export const translations: Record<Language, Translations> = {
     projects: {
       heading: 'Projektai',
       entries: [
+        {
+          title: 'Chalk',
+          description:
+            'Full-stack aplikacija, kuria kasdien valdau savo korepetitoriavimo veiklą – mokiniai, tvarkaraštis, pamokų užrašai, mokėjimai ir mokesčių prognozė, su Google Calendar sinchronizacija ir atvira bankininkyste.',
+          tech: [
+            'Next.js',
+            'TypeScript',
+            'PostgreSQL',
+            'Supabase',
+            'Tailwind CSS',
+          ],
+          githubUrl: 'https://github.com/AD0MAS/chalk-app',
+        },
         {
           title: 'GoHybrid',
           description:

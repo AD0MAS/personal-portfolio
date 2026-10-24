@@ -37,15 +37,17 @@ function ProjectCard({ project }: ProjectCardProps) {
           GitHub
         </a>
 
-        <a
-          href={project.liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Live Demo: ${project.title}`}
-          className={`${focusRing} hover:underline`}
-        >
-          Live Demo
-        </a>
+        {project.liveUrl && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Live Demo: ${project.title}`}
+            className={`${focusRing} hover:underline`}
+          >
+            Live Demo
+          </a>
+        )}
       </div>
     </li>
   )
